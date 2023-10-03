@@ -12,7 +12,8 @@ export default class App extends React.Component {
     this.state = {
 
       todoList: [],
-      typedInput: ''
+      typedInput: '',
+      hide: false
     }
   }
 
@@ -31,7 +32,7 @@ export default class App extends React.Component {
     this.setState({typedInput: ''})
   }
   handleHideClick = () => {
-    this.setState({todoList: []})
+    this.setState({hide: !this.state.hide})
   }
   handleCheckClick = (event) => {
     let id = event.target.id
@@ -44,12 +45,13 @@ export default class App extends React.Component {
     return (
       <div>
         <h2>Todos:</h2>
-        <TodoList todoList={this.state.todoList} handleCheckClick={this.handleCheckClick}/>
+        <TodoList todoList={this.state.todoList} handleCheckClick={this.handleCheckClick} hide={this.state.hide}/>
         <Form 
         typedInput={this.state.typedInput} 
         handleInputChange={this.handleInputChange}
         handleSubmit={this.handleSubmit}
-        handleHideClick={this.handleHideClick}/>
+        handleHideClick={this.handleHideClick}
+        hide={this.state.hide}/>
 
       </div>
       

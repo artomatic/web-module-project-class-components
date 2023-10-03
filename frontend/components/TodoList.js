@@ -11,7 +11,8 @@ export default class TodoList extends React.Component {
           todo={td.name} 
           id={td.id} 
           handleCheckClick={this.props.handleCheckClick}
-          completed = {td.completed}/>
+          completed = {td.completed}
+          hide={this.props.hide}/>
         ) }
       </div>
     )
